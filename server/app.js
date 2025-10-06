@@ -3,6 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middlewares/errorMiddleware.js";
+import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.get("/ping", (req, res) => {
 
 // API routes
 app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 // Error handling middleware
 app.use(notFound);
